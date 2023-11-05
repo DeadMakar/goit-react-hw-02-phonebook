@@ -6,7 +6,7 @@ import { StyledForm, Error, Title } from './ContactEntryForm.styled';
 export const ContactEntryForm = ({ onSubmit, contacts }) => {
   const validationSchema = Yup.object({
     name: Yup.string().required('Name is required'),
-    number: Yup.string().required('Number is required'),
+    number: Yup.number().required('Number is required'),
   });
 
   const initialValues = {
