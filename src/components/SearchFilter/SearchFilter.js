@@ -1,6 +1,11 @@
+import { StyledSearchFilter, ContactTitle } from './SearchFilter.styled';
+
 export const SearchFilter = ({ value, onChange }) => (
-  <div>
-    <h2>Search contacts</h2>
-    <input type="text" name="filter" value={value} onChange={onChange} />
-  </div>
+  <>
+    <ContactTitle>Contacts</ContactTitle>
+    <StyledSearchFilter>
+      <h2>Search contacts</h2>
+      <input type="text" name="filter" value={value} onChange={onChange} />
+    </StyledSearchFilter>
+  </>
 );

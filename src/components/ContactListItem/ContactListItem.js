@@ -1,9 +1,10 @@
+import { StyledContactListItem } from './ContactListItem.styled';
 export const ContactListItem = ({ contact }) => {
   return (
-    <div>
+    <StyledContactListItem>
       <p>
         {contact.name}: {contact.number}
       </p>
-    </div>
+    </StyledContactListItem>
   );
 };
