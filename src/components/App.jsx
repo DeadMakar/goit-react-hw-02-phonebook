@@ -22,6 +22,16 @@ export class App extends Component {
   };
 
   handleSubmit = ({ name, number }) => {
+    const normalizedName = name.toLowerCase();
+    const isNameExists = this.state.contacts.some(
+      contact => contact.name.toLowerCase() === normalizedName
+    );
+
+    if (isNameExists) {
+      alert(`Contact with name '${name}' already exists!`);
+      return;
+    }
+
     const newContact = {
       id: nanoid(),
       name,
@@ -49,13 +59,12 @@ export class App extends Component {
   };
 
   render() {
-    const { contacts, filter } = this.state;
+    const { filter } = this.state;
     const filteredContacts = this.getFilteredContacts();
 
     return (
       <>
-        <ContactEntryForm onSubmit={this.handleSubmit} contacts={contacts} />
-
+        <ContactEntryForm onSubmit={this.handleSubmit} />
         <SearchFilter value={filter} onChange={this.handleChange} />
         <ContactList
           contacts={filteredContacts}
